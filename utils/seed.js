@@ -38,7 +38,14 @@ connection.once("open", async () => {
   await User.collection.insertMany(users);
 
   // Array of thoughts
-  const thoughts = [];
+  const thoughts = [
+    { thoughtText: "The beginning of wisdom is the statement 'I do not know.' The person who cannot make that statement is one who will never learn anything. And I have prided myself on my ability to learn.", username: "Thrall" },
+    { thoughtText: "How easily the mind can be turned to hate from a place of fear - an instinctive, natural, protective response. Instead of focusing on the things that unite us, we focus on what divides us.", username: "Thrall" },
+    { thoughtText: "Be bathed in my power! Drink in my might! Battle for the glory of the Horde!", username: "Thrall" },
+    { thoughtText: "You are not prepared!", username: "Illidan" },
+    { thoughtText: "I am my scars!", username: "Illidan" },
+    { thoughtText: "Imprisoned for ten thousand years. Banished from my own homeland. And now you dare enter my realm?", username: "Illidan" },
+  ];
 
   // console log that seeding is complete and exit
   console.info("Seeding complete! 🌱");
