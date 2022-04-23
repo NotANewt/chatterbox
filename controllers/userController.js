@@ -1,5 +1,5 @@
 const { ObjectId } = require("mongoose").Types;
-const { User } = require("../models");
+const { Reaction, Thought, User } = require("../models");
 
 module.exports = {
   // Get all Users
@@ -53,13 +53,12 @@ module.exports = {
       .then(() => res.json({ message: "Course and Thoughts deleted!" }))
       .catch((err) => res.status(500).json(err));
   },
-  // Add a friend to a user
+  // Add friend to a user
   addFriend(req, res) {
-    console.log("You are adding a friend");
+    console.log("You are adding an friend");
     console.log(req.body);
-    // TODO: check if friends is plural here
-    User.findOneAndUpdate({ _id: req.params.userId }, { $addToSet: { friends: req.body } }, { runValidators: true, new: true })
-      .then((user) => (!user ? res.status(404).json({ message: "No user found with that ID" }) : res.json(user)))
+    User.findOneAndUpdate({ _id: req.params.userId }, { $addToSet: { friends: req.params.friendId } }, { new: true })
+      .then((user) => (!user ? res.status(404).json({ message: "No user found with that ID :(" }) : res.json(user)))
       .catch((err) => res.status(500).json(err));
   },
   // Remove friend from a user

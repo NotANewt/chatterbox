@@ -17,3 +17,5 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 };
+
+// TODO: move this to thought controller

@@ -1,9 +1,9 @@
-const { Schema, model } = require("mongoose");
+const { Schema, Types, model } = require("mongoose");
 
 const thoughtSchema = new Schema(
   {
     thoughtId: {
-      type: Schema.Types.ObjectIds,
+      type: Schema.Types.ObjectId,
       default: () => new Types.ObjectIds(),
     },
     thoughtText: {

@@ -10,3 +10,5 @@ router.route("/").post(createReaction);
 router.route("/:reactionId").delete(deleteReaction);
 
 module.exports = router;
+
+// TODO: move this into thorught routes

@@ -1,4 +1,5 @@
-const { Thought } = require("../models");
+const { ObjectId } = require("mongoose").Types;
+const { Reaction, Thought, User } = require("../models");
 
 module.exports = {
   // Get all thoughts
@@ -15,10 +16,12 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // Create a new thought
-  //   TODO: push the created thought's thoughtid to the associated user's thoughts array field
   createThought(req, res) {
     Thought.create(req.body)
-      .then((thought) => res.json(thought))
+      .then((thought) => {
+        return User.findOneAndUpdate({ _id: req.body.userId }, { $push: { thoughts: thought._id } }, { new: true });
+      })
+      .then((user) => res.json(user))
       .catch((err) => {
         console.log(err);
         return res.status(500).json(err);

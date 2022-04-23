@@ -47,6 +47,9 @@ connection.once("open", async () => {
     { thoughtText: "Imprisoned for ten thousand years. Banished from my own homeland. And now you dare enter my realm?", username: "Illidan" },
   ];
 
+  // Add thoughts to the collection and await the results
+  await Thought.collection.insertMany(thoughts);
+
   // console log that seeding is complete and exit
   console.info("Seeding complete! 🌱");
   process.exit(0);
