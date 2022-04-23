@@ -9,13 +9,12 @@ router.route("/").get(getThoughts).post(createThought);
 // routes to get, put(update), and delete thoughts by thoughtId
 router.route("/:thoughtId").get(getSingleThought).put(updateThought).delete(deleteThought);
 
-// TODO: fix these to point to thoughts instead
-// /api/reaction
-// api route to create a new reaction
-router.route("/").post(createReaction);
+// /api/thoughts/:thoughtId/reactions
+// api route to create a new reaction for a thought by thoughtId
+router.route("/:thoughtId/reactions").post(createReaction);
 
-// /api/reaction/:reactionId
-// api route to delete a reaction by reactionId
-router.route("/:reactionId").delete(deleteReaction);
+// /api/thoughts/:thoughtId/:reactionId
+// api route to delete a reaction by reactionId and thoughtId
+router.route("/thoughtId/:reactionId").delete(deleteReaction);
 
 module.exports = router;
