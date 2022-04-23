@@ -6,9 +6,6 @@ connection.on("error", (err) => err);
 connection.once("open", async () => {
   console.log("connected");
 
-  // Drop existing reactions
-  await Reaction.deleteMany({});
-
   // Drop existing thoughts
   await Thought.deleteMany({});
 

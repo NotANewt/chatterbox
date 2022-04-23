@@ -5,8 +5,16 @@ module.exports = {
   // Get all thoughts
   getThoughts(req, res) {
     Thought.find()
-      .then((thoughts) => res.json(thoughts))
-      .catch((err) => res.status(500).json(err));
+      .then(async (thoughts) => {
+        const thoughtObj = {
+          thoughts,
+        };
+        return res.json(thoughtObj);
+      })
+      .catch((err) => {
+        console.log(err);
+        return res.status(500).json(err);
+      });
   },
   // Get a single thought from thoughtId
   getSingleThought(req, res) {
