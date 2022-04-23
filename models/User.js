@@ -35,7 +35,6 @@ const userSchema = new Schema(
   }
 );
 
-// TODO: Add friend count virtual method here
 userSchema.virtual("friendCount").get(function () {
   return this.friends.length;
 });
