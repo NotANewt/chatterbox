@@ -49,6 +49,7 @@ module.exports = {
   },
   // Delete a user and user's thoughts
   deleteUser(req, res) {
+    console.log("You are deleting a user");
     User.findOneAndDelete({ _id: req.params.userId })
       .then((user) => (!user ? res.status(404).json({ message: "No user with that ID" }) : Thought.deleteMany({ _id: { $in: user.thoughts } })))
       .then(() => res.json({ message: "User and Thoughts deleted!" }))

@@ -38,6 +38,7 @@ module.exports = {
   },
   // Delete a thought
   deleteThought(req, res) {
+    console.log("You are deleting a thought");
     Thought.findOneAndDelete({ _id: req.params.thoughtId })
       .then((thought) => (!thought ? res.status(404).json({ message: "No thought with that ID" }) : res.json({ message: "Thought deleted!" })))
       .then(() => User.findOneAndUpdate({ thoughts: req.params.thoughtId }, { $pull: { thoughts: req.params.thoughtId } }, { new: true }))
