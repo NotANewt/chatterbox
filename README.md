@@ -66,7 +66,7 @@ If you would like to contribute to this application, please follow Creative Cont
 
 ## Tests
 
-Use Thunderclient to test the api routes
+Use Thunderclient to test the api routes.
 
 ## Questions
 
@@ -78,4 +78,5 @@ If you have any questions:
 ## Links
 
 - Here is the repo: [NotANewt/Chatterbox](https://github.com/NotANewt/chatterbox)
-- Here is a link to the video walkthrough: [NotANewt/video walkthrough]()
+- Here is a link to the first part of the video walkthrough: [Video Walkthrough/ User Routes](https://drive.google.com/file/d/1RzQVb0jvjtgxp3KlcHovFtPqqFT7M8o_/view)
+- Here is a link to the second part of the video walkthrough: [Video Walkthrough/ Thought Routes](https://drive.google.com/file/d/17H95ThrHN-bsVSZ9vKL30l-0POhbxo_E/view)
