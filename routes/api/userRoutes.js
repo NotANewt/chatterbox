@@ -9,12 +9,8 @@ router.route("/").get(getUsers).post(createUser);
 // api route to get, update, or delete a user by userId
 router.route("/:userId").get(getSingleUser).put(updateUser).delete(deleteUser);
 
-// /api/users/:userId/friends
-// api route to add a new friend to a user by userId
-router.route("/:userId/friends").post(addFriend);
-
-// /api/userss/:userId/friends/:friendId
-// api route to remove a friend from a user by userId and friendId
-router.route("/:userId/friends/:friendId").delete(removeFriend);
+// /api/users/:userId/friends/:friendId
+// api route to add a friend or remove a friend from a user by userId and friendId
+router.route("/:userId/friends/:friendId").post(addFriend).delete(removeFriend);
 
 module.exports = router;
