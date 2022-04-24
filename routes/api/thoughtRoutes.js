@@ -15,6 +15,6 @@ router.route("/:thoughtId/reactions").post(addReaction);
 
 // /api/thoughts/:thoughtId/:reactionId
 // api route to delete a reaction by reactionId and thoughtId
-router.route("/thoughtId/:reactionId").delete(removeReaction);
+router.route("/:thoughtId/reactions/:reactionId").delete(removeReaction);
 
 module.exports = router;
