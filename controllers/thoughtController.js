@@ -38,17 +38,17 @@ module.exports = {
   // Delete a thought and its associated reactions
   deleteThought(req, res) {
     Thought.findOneAndDelete({ _id: req.params.thoughtId })
-      .then((thought) => (!thought ? res.status(404).json({ message: "No thought with that ID" }) : Reaction.deleteMany({ _id: { $in: thought.reactions } })))
-      .then(() => res.json({ message: "Thought and reactions deleted!" }))
+      .then((thought) => (!thought ? res.status(404).json({ message: "No thought with that ID" }) : res.json({ message: "Thought and reactions deleted!" })))
       .catch((err) => res.status(500).json(err));
   },
+
   // Update a thought
   updateThought(req, res) {
     Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $set: req.body }, { runValidators: true, new: true })
       .then((thought) => (!thought ? res.status(404).json({ message: "No thought with this id!" }) : res.json(thought)))
       .catch((err) => res.status(500).json(err));
   },
-  // TODO: go back and make sure these work?
+  // Add a reaction to a thought
   addReaction(req, res) {
     console.log("You are adding a reaction");
     console.log(req.body);
